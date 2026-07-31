@@ -50,7 +50,7 @@ const FAQS = [
 
 export default function Support() {
   return (
-    <SpotlightSection className="section">
+    <SpotlightSection className="section" color="rgba(74, 139, 207, 0.12)">
       <div className="container">
         <Reveal>
           <SectionHeader

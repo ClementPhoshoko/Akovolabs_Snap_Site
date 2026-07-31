@@ -89,49 +89,6 @@ const STATS = [
   { value: 0, suffix: "", label: "Tracking, ever" },
 ];
 
-const SHOWCASE = [
-  {
-    src: "/screenshots/home.png",
-    title: "Home",
-    caption: "One-click full-page screenshots",
-  },
-  {
-    src: "/screenshots/processing.png",
-    title: "Extract Design",
-    caption: "AI design extraction in progress",
-  },
-  {
-    src: "/screenshots/download.png",
-    title: "Extract Design Complete",
-    caption: "Your page, rebuilt as code",
-  },
-  {
-    src: "/screenshots/history.png",
-    title: "History",
-    caption: "Everything, in one place",
-  },
-  {
-    src: "/screenshots/settings.png",
-    title: "Settings",
-    caption: "Tuned your way",
-  },
-];
-
-const MARQUEE_ITEMS = [
-  "PNG",
-  "JPEG",
-  "WebP",
-  "React",
-  "Vite",
-  "Plain CSS",
-  "Gemini AI",
-  "JSZip",
-  "IndexedDB",
-  "Chrome MV3",
-  "Framer Motion",
-  "Lucide Icons",
-];
-
 const EXTRACT_CHECKS = [
   "Extracts DOM structure, computed styles, CSS variables, typography, images, SVGs, icons, layout, and spacing.",
   "Captures multiple full-page screenshots as visual references for the AI.",
@@ -153,6 +110,7 @@ const heroItem = {
 export default function Home() {
   return (
     <>
+      {/* 1. Hero Section */}
       <SpotlightSection className="hero">
         <div className="blob blob-1" />
         <div className="blob blob-2" />
@@ -177,25 +135,10 @@ export default function Home() {
           <motion.p className="hero-meta" variants={heroItem}>
             Free · No account · Everything stays on your device
           </motion.p>
-
-          <motion.div variants={heroItem}>
-            <div className="frame">
-              <div className="frame-bar">
-                <div className="frame-dots">
-                  <span className="frame-dot" style={{ background: "#cc7832" }} />
-                  <span className="frame-dot" style={{ background: "#dbb754" }} />
-                  <span className="frame-dot" style={{ background: "#629755" }} />
-                </div>
-                <div className="frame-url">https://example.com — full-page capture</div>
-              </div>
-              <div className="frame-body">
-                <img src="/screenshots/home.png" alt="AkovoLabs Snap popup home screen" />
-              </div>
-            </div>
-          </motion.div>
         </motion.div>
       </SpotlightSection>
 
+      {/* 2. Stats Strip */}
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">
           <Reveal>
@@ -213,21 +156,40 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="marquee" aria-hidden="true">
-        <div className="marquee-track">
-          {[0, 1].map((copy) => (
-            <span key={copy}>
-              {MARQUEE_ITEMS.map((item) => (
-                <em key={`${copy}-${item}`} style={{ fontStyle: "normal" }}>
-                  {item}
-                </em>
-              ))}
-            </span>
-          ))}
+      {/* 3. HD Showcase: Home */}
+      <SpotlightSection className="section showcase-section" color="rgba(74, 139, 207, 0.12)">
+        <div className="container">
+          <div className="showcase-grid">
+            <div className="showcase-content">
+              <Reveal>
+                <span className="badge badge-accent">Extension Interface</span>
+                <h2>A powerful extension in a simple popup</h2>
+              </Reveal>
+              <Reveal delay={0.1}>
+                <p>
+                  Capture any viewport or full scrollable webpage with one click. Clean, fast,
+                  and runs entirely on your device with offline support.
+                </p>
+              </Reveal>
+              <Reveal delay={0.2}>
+                <div className="hero-actions" style={{ justifyContent: "flex-start" }}>
+                  <Button to="/docs" variant="secondary" icon={ArrowRight} iconAfter>
+                    View capture guide
+                  </Button>
+                </div>
+              </Reveal>
+            </div>
+            <Reveal delay={0.15}>
+              <div className="showcase-img-container">
+                <img src="/extension_images_hd/home.png" alt="AkovoLabs Snap popup interface" />
+              </div>
+            </Reveal>
+          </div>
         </div>
-      </section>
+      </SpotlightSection>
 
-      <SpotlightSection className="section" color="rgba(98, 151, 85, 0.10)">
+      {/* 4. Features Grid */}
+      <SpotlightSection className="section" color="rgba(98, 151, 85, 0.08)">
         <div className="container">
           <Reveal>
             <SectionHeader
@@ -246,6 +208,77 @@ export default function Home() {
         </div>
       </SpotlightSection>
 
+      {/* 5. HD Showcase: Processing + Download */}
+      <SpotlightSection className="section showcase-section" color="rgba(204, 120, 50, 0.1)">
+        <div className="container">
+          <div className="showcase-grid reverse">
+            <Reveal delay={0.15}>
+              <div className="showcase-img-container">
+                <img src="/extension_images_hd/processing.png" alt="AI design extraction in progress" />
+              </div>
+            </Reveal>
+            <div className="showcase-content">
+              <Reveal>
+                <span className="badge badge-accent" style={{ background: "rgba(204, 120, 50, 0.15)", color: "var(--brand-accent)", border: "1px solid rgba(204, 120, 50, 0.3)" }}>
+                  <Sparkles size={12} style={{ marginRight: 6, verticalAlign: "middle" }} /> AI Design Extraction
+                </span>
+                <h2>Gemini-powered layout reconstruction</h2>
+              </Reveal>
+              <Reveal delay={0.1}>
+                <p>
+                  Snap parses the live page DOM structure, computed CSS styles, design tokens,
+                  typography definitions, and image assets. It builds a structured semantic context
+                  to feed into Gemini AI for a precise code rebuild.
+                </p>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+      </SpotlightSection>
+
+      <SpotlightSection className="section showcase-section" color="rgba(98, 151, 85, 0.1)">
+        <div className="container">
+          <div className="showcase-grid">
+            <div className="showcase-content">
+              <Reveal>
+                <span className="badge badge-accent" style={{ background: "rgba(98, 151, 85, 0.15)", color: "var(--brand-secondary-light)", border: "1px solid rgba(98, 151, 85, 0.3)" }}>
+                  Production Code
+                </span>
+                <h2>Ready-to-run React codebase</h2>
+              </Reveal>
+              <Reveal delay={0.1}>
+                <p>
+                  Download the reconstruction as a complete Vite + React project ZIP file.
+                  Unzip, run npm install, and open your code editor. The output is modular, cleanly structured,
+                  and preserves the original site's responsive aesthetics.
+                </p>
+              </Reveal>
+              <ul className="check-list" style={{ marginTop: 16 }}>
+                {EXTRACT_CHECKS.map((item, index) => (
+                  <Reveal key={item} delay={0.05 * index} as="li">
+                    <Check />
+                    {item}
+                  </Reveal>
+                ))}
+              </ul>
+              <Reveal delay={0.2}>
+                <div className="hero-actions" style={{ justifyContent: "flex-start" }}>
+                  <Button to="/docs#extract-design" variant="secondary" icon={ArrowRight} iconAfter>
+                    Learn about reconstruction
+                  </Button>
+                </div>
+              </Reveal>
+            </div>
+            <Reveal delay={0.15}>
+              <div className="showcase-img-container">
+                <img src="/extension_images_hd/download.png" alt="Extracted design ZIP download page" />
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </SpotlightSection>
+
+      {/* 6. How It Works */}
       <section className="section">
         <div className="container">
           <Reveal>
@@ -265,85 +298,60 @@ export default function Home() {
         </div>
       </section>
 
-      <SpotlightSection className="section">
+      {/* 7. HD Showcase: History + Settings */}
+      <SpotlightSection className="section showcase-section" color="rgba(74, 139, 207, 0.1)">
         <div className="container">
-          <div className="split">
-            <div className="split-media">
+          <div className="showcase-grid reverse">
+            <Reveal delay={0.15}>
+              <div className="showcase-img-container">
+                <img src="/extension_images_hd/history.png" alt="Local capture history panel" />
+              </div>
+            </Reveal>
+            <div className="showcase-content">
               <Reveal>
-                <div className="frame">
-                  <div className="frame-bar">
-                    <div className="frame-url">Extract Design — pipeline running</div>
-                  </div>
-                  <img src="/screenshots/processing.png" alt="Extract Design pipeline in progress" />
-                </div>
-              </Reveal>
-              <Reveal delay={0.15}>
-                <div className="frame">
-                  <div className="frame-bar">
-                    <div className="frame-url">Extract Design — complete</div>
-                  </div>
-                  <img src="/screenshots/download.png" alt="Extract Design completion screen" />
-                </div>
-              </Reveal>
-            </div>
-            <div>
-              <Reveal>
-                <span className="badge badge-accent" style={{ marginBottom: 16, display: "inline-flex" }}>
-                  <Sparkles size={12} /> Extract Design
-                </span>
-                <h2 style={{ marginBottom: 16 }}>Any webpage, rebuilt as React code</h2>
+                <span className="badge badge-accent">Offline Library</span>
+                <h2>Manage your library locally</h2>
               </Reveal>
               <Reveal delay={0.1}>
                 <p>
-                  See a design you love? Snap analyzes its structure and design system, then Gemini
-                  reconstructs it as a Vite + React project you can download, open, and edit.
+                  Every screenshot and reconstructed codebase is preserved locally in your browser's IndexedDB.
+                  Quickly search by domain, review prior extraction visual scores, copy pages directly
+                  to clipboard, or clean up your catalog.
                 </p>
-              </Reveal>
-              <ul className="check-list" style={{ marginTop: 16 }}>
-                {EXTRACT_CHECKS.map((item, index) => (
-                  <Reveal key={item} delay={0.05 * index} as="li">
-                    <Check />
-                    {item}
-                  </Reveal>
-                ))}
-              </ul>
-              <Reveal delay={0.2}>
-                <div className="hero-actions" style={{ justifyContent: "flex-start" }}>
-                  <Button to="/docs#extract-design" variant="secondary" icon={ArrowRight} iconAfter>
-                    Learn how it works
-                  </Button>
-                </div>
               </Reveal>
             </div>
           </div>
         </div>
       </SpotlightSection>
 
-      <section className="section">
+      <SpotlightSection className="section showcase-section" color="rgba(204, 120, 50, 0.08)">
         <div className="container">
-          <Reveal>
-            <SectionHeader
-              kicker="Screenshots"
-              title="A quick look"
-              subtitle="A modern glassmorphism interface in a dark theme, built for speed."
-            />
-          </Reveal>
-          <div className="showcase">
-            {SHOWCASE.map((item, index) => (
-              <Reveal key={item.title} delay={(index % 2) * 0.12}>
-                <div className="card showcase-item">
-                  <img src={item.src} alt={`${item.title} screenshot`} loading="lazy" />
-                  <div className="showcase-caption">
-                    <strong>{item.title}</strong>
-                    <span>{item.caption}</span>
-                  </div>
-                </div>
+          <div className="showcase-grid">
+            <div className="showcase-content">
+              <Reveal>
+                <span className="badge badge-accent" style={{ background: "rgba(204, 120, 50, 0.15)", color: "var(--brand-accent)", border: "1px solid rgba(204, 120, 50, 0.3)" }}>
+                  Configuration
+                </span>
+                <h2>Tuned for your development workflow</h2>
               </Reveal>
-            ))}
+              <Reveal delay={0.1}>
+                <p>
+                  Configure dynamic page scroll delays, preferred screenshot file formats (PNG, JPEG, WebP),
+                  local archive sizes, and custom API endpoints. Shape the extension behavior to match
+                  your product design and styling guidelines.
+                </p>
+              </Reveal>
+            </div>
+            <Reveal delay={0.15}>
+              <div className="showcase-img-container">
+                <img src="/extension_images_hd/settings.png" alt="Extension developer configuration screen" />
+              </div>
+            </Reveal>
           </div>
         </div>
-      </section>
+      </SpotlightSection>
 
+      {/* 8. CTA Banner */}
       <SpotlightSection className="section" color="rgba(98, 151, 85, 0.16)">
         <div className="container">
           <Reveal>

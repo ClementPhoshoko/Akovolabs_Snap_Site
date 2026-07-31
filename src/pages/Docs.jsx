@@ -332,7 +332,7 @@ export default function Docs() {
   }, []);
 
   return (
-    <SpotlightSection className="section" style={{ paddingTop: 0, paddingBottom: 0 }}>
+    <SpotlightSection className="section" color="rgba(74, 139, 207, 0.1)" style={{ paddingTop: 0, paddingBottom: 0 }}>
       <div className="container">
         <div className="docs-layout">
           <aside className="docs-sidebar" aria-label="Documentation">

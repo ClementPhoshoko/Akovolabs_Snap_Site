@@ -176,7 +176,7 @@ const SECTIONS = [
 
 export default function Privacy() {
   return (
-    <SpotlightSection className="section" style={{ paddingTop: 0, paddingBottom: 0 }}>
+    <SpotlightSection className="section" color="rgba(98, 151, 85, 0.1)" style={{ paddingTop: 0, paddingBottom: 0 }}>
       <div className="container">
         <div className="legal">
           <Reveal>
