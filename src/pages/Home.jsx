@@ -11,6 +11,10 @@ import {
   Package,
   ArrowRight,
   Check,
+  MousePointerClick,
+  Layers,
+  Cpu,
+  EyeOff,
 } from "lucide-react";
 import SectionHeader from "../components/SectionHeader";
 import FeatureCard from "../components/FeatureCard";
@@ -83,10 +87,10 @@ const STEPS = [
 ];
 
 const STATS = [
-  { value: 1, suffix: "", label: "Click to capture" },
-  { value: 16, suffix: "", label: "Pipeline stages" },
-  { value: 100, suffix: "%", label: "On-device" },
-  { value: 0, suffix: "", label: "Tracking, ever" },
+  { value: 1, suffix: "", label: "Click to capture", icon: MousePointerClick },
+  { value: 16, suffix: "", label: "Pipeline stages", icon: Layers },
+  { value: 100, suffix: "%", label: "On-device", icon: Cpu },
+  { value: 0, suffix: "", label: "Tracking, ever", icon: EyeOff },
 ];
 
 const EXTRACT_CHECKS = [
@@ -115,12 +119,16 @@ export default function Home() {
         <div className="blob blob-1" />
         <div className="blob blob-2" />
         <div className="blob blob-3" />
+        <div className="hero-glow-orb" />
+        <div className="hero-beam" />
+        <div className="hero-beam" />
         <motion.div className="container hero-inner" variants={heroContainer} initial="hidden" animate="show">
           <motion.div variants={heroItem}>
             <span className="badge badge-accent">v1.2.0 · Chrome &amp; Edge</span>
           </motion.div>
           <motion.h1 variants={heroItem}>
-            Capture <span className="gradient-text">beyond</span> the screen.
+            Capture{" "}
+            <span className="gradient-text">beyond the screen.</span>
           </motion.h1>
           <motion.p className="hero-sub" variants={heroItem}>
             Full-page screenshots with one click — and AI that turns any webpage into a
@@ -135,24 +143,49 @@ export default function Home() {
           <motion.p className="hero-meta" variants={heroItem}>
             Free · No account · Everything stays on your device
           </motion.p>
+
+          {/* Floating browser mockup */}
+          <motion.div
+            variants={heroItem}
+            className="frame"
+          >
+            <div className="frame-bar">
+              <div className="frame-dots">
+                <span className="frame-dot" style={{ background: "#ff5f57" }} />
+                <span className="frame-dot" style={{ background: "#febc2e" }} />
+                <span className="frame-dot" style={{ background: "#28c840" }} />
+              </div>
+              <div className="frame-url">chrome-extension://snap/popup.html</div>
+            </div>
+            <div className="frame-body">
+              <img
+                src="/extension_images_hd/home.png"
+                alt="AkovoLabs Snap extension interface"
+                loading="eager"
+              />
+            </div>
+          </motion.div>
         </motion.div>
       </SpotlightSection>
 
       {/* 2. Stats Strip */}
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">
-          <Reveal>
-            <div className="card stats-grid">
-              {STATS.map((stat) => (
-                <div className="stat" key={stat.label}>
+          <div className="stats-grid">
+            {STATS.map((stat, index) => (
+              <Reveal key={stat.label} delay={index * 0.08}>
+                <div className="stat">
+                  <span className="stat-icon">
+                    <stat.icon />
+                  </span>
                   <span className="stat-value">
                     <CountUp to={stat.value} suffix={stat.suffix} />
                   </span>
                   <span className="stat-label">{stat.label}</span>
                 </div>
-              ))}
-            </div>
-          </Reveal>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -356,6 +389,7 @@ export default function Home() {
         <div className="container">
           <Reveal>
             <div className="cta-banner">
+              <div className="cta-banner-beam" />
               <span className="badge badge-accent" style={{ marginBottom: 16 }}>
                 <Palette size={12} /> Free forever
               </span>
