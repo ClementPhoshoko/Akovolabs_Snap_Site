@@ -86,13 +86,6 @@ const STEPS = [
   },
 ];
 
-const STATS = [
-  { value: 1, suffix: "", label: "Click to capture", icon: MousePointerClick },
-  { value: 16, suffix: "", label: "Pipeline stages", icon: Layers },
-  { value: 100, suffix: "%", label: "On-device", icon: Cpu },
-  { value: 0, suffix: "", label: "Tracking, ever", icon: EyeOff },
-];
-
 const EXTRACT_CHECKS = [
   "Extracts DOM structure, computed styles, CSS variables, typography, images, SVGs, icons, layout, and spacing.",
   "Captures multiple full-page screenshots as visual references for the AI.",
@@ -168,23 +161,138 @@ export default function Home() {
         </motion.div>
       </SpotlightSection>
 
-      {/* 2. Stats Strip */}
-      <section className="section" style={{ paddingTop: 0 }}>
+      {/* 2. Stats Section — Bento Grid Style */}
+      <section className="section stats-bento-section" style={{ paddingTop: 0 }}>
         <div className="container">
-          <div className="stats-grid">
-            {STATS.map((stat, index) => (
-              <Reveal key={stat.label} delay={index * 0.08}>
-                <div className="stat">
-                  <span className="stat-icon">
-                    <stat.icon />
-                  </span>
-                  <span className="stat-value">
-                    <CountUp to={stat.value} suffix={stat.suffix} />
-                  </span>
-                  <span className="stat-label">{stat.label}</span>
+          <div className="stats-bento-grid">
+            
+            {/* Card 1: 1 Click to Capture */}
+            <Reveal className="bento-card span-7 capture-bento" delay={0.05}>
+              <div className="bento-card-beam" />
+              <div className="bento-content">
+                <span className="bento-badge">
+                  <MousePointerClick size={12} /> Capture
+                </span>
+                <div className="bento-info">
+                  <h3 className="bento-title">
+                    <CountUp to={1} /> Click to Capture
+                  </h3>
+                  <p className="bento-desc">One click catches the full scrollable page. Seamless screenshot stitching at full viewport resolution.</p>
                 </div>
-              </Reveal>
-            ))}
+              </div>
+              <div className="bento-visual capture-visual">
+                <div className="mock-window">
+                  <div className="mock-window-bar">
+                    <span className="dot red" />
+                    <span className="dot yellow" />
+                    <span className="dot green" />
+                  </div>
+                  <div className="mock-window-body">
+                    <div className="mock-browser-contents">
+                      <div className="mock-element header" />
+                      <div className="mock-element card-grid">
+                        <span className="mock-element block" />
+                        <span className="mock-element block" />
+                      </div>
+                      <div className="mock-element text-line" />
+                      <div className="mock-element text-line short" />
+                    </div>
+                    <div className="mock-extension-popup">
+                      <div className="popup-header">
+                        <span className="logo-dot" />
+                        Snap Popup
+                      </div>
+                      <button className="popup-btn">
+                        <Camera size={10} />
+                        <span>Capture Page</span>
+                      </button>
+                    </div>
+                    <div className="camera-flash" />
+                  </div>
+                </div>
+                <div className="mock-cursor" />
+              </div>
+            </Reveal>
+
+            {/* Card 2: 16 Pipeline Stages */}
+            <Reveal className="bento-card span-5 pipeline-bento" delay={0.1}>
+              <div className="bento-card-beam" />
+              <div className="bento-content">
+                <span className="bento-badge">
+                  <Layers size={12} /> Ingestion
+                </span>
+                <div className="bento-info">
+                  <h3 className="bento-title">
+                    <CountUp to={16} /> Pipeline Stages
+                  </h3>
+                  <p className="bento-desc">A highly optimized multi-stage processing pipeline transforming DOM state to custom React code components.</p>
+                </div>
+              </div>
+              <div className="bento-visual pipeline-visual">
+                <div className="pipeline-nodes">
+                  <div className="node n1">DOM</div>
+                  <div className="connector c1" />
+                  <div className="node n2">CSS</div>
+                  <div className="connector c2" />
+                  <div className="node n3">AI</div>
+                  <div className="connector c3" />
+                  <div className="node n4">ZIP</div>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Card 3: 100% On-Device */}
+            <Reveal className="bento-card span-5 device-bento" delay={0.15}>
+              <div className="bento-card-beam" />
+              <div className="bento-content">
+                <span className="bento-badge">
+                  <Cpu size={12} /> Execution
+                </span>
+                <div className="bento-info">
+                  <h3 className="bento-title">
+                    <CountUp to={100} suffix="%" /> On-Device
+                  </h3>
+                  <p className="bento-desc">Runs strictly on local CPU. All settings, histories, and databases remain completely offline.</p>
+                </div>
+              </div>
+              <div className="bento-visual cpu-visual">
+                <div className="cpu-core">
+                  <Cpu size={32} />
+                  <span className="pulse ring-1" />
+                  <span className="pulse ring-2" />
+                  <span className="pulse ring-3" />
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Card 4: 0 Tracking */}
+            <Reveal className="bento-card span-7 privacy-bento" delay={0.2}>
+              <div className="bento-card-beam" />
+              <div className="bento-content">
+                <span className="bento-badge">
+                  <EyeOff size={12} /> Privacy
+                </span>
+                <div className="bento-info">
+                  <h3 className="bento-title">
+                    <CountUp to={0} /> Tracking, Ever
+                  </h3>
+                  <p className="bento-desc">Zero telemetry, tracking scripts, cookies, or remote analytics calls. Sandbox-isolated execution.</p>
+                </div>
+              </div>
+              <div className="bento-visual terminal-visual">
+                <div className="terminal-header">
+                  <span className="dot" />
+                  <span className="title">Network Activity</span>
+                </div>
+                <div className="terminal-body">
+                  <div className="terminal-line block">&gt; telemetry-endpoint: BLOCKED</div>
+                  <div className="terminal-line block">&gt; thirdparty-analytics: BLOCKED</div>
+                  <div className="terminal-line success">&gt; local IndexedDB: SECURED</div>
+                  <div className="terminal-line success">&gt; offline capture status: OK</div>
+                </div>
+              </div>
+            </Reveal>
+
           </div>
         </div>
       </section>
