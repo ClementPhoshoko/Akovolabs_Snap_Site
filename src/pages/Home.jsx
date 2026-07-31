@@ -309,7 +309,7 @@ export default function Home() {
               </ul>
               <Reveal delay={0.2}>
                 <div className="hero-actions" style={{ justifyContent: "flex-start" }}>
-                  <Button to="/docs#extract-design" variant="secondary" icon={ArrowRight}>
+                  <Button to="/docs#extract-design" variant="secondary" icon={ArrowRight} iconAfter>
                     Learn how it works
                   </Button>
                 </div>

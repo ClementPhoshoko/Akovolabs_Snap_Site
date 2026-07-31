@@ -44,7 +44,10 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} AkovoLabs. All rights reserved.</span>
-          <span>Built for Google Chrome and Microsoft Edge.</span>
+          <span className="footer-built">
+            Built for Google Chrome &amp; Microsoft Edge
+            <span className="footer-version">v1.2.0</span>
+          </span>
         </div>
       </div>
     </footer>

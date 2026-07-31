@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import SpotlightSection from "../components/SpotlightSection";
 import Reveal from "../components/Reveal";
 
@@ -308,6 +309,28 @@ const DOCS = [
 ];
 
 export default function Docs() {
+  useEffect(() => {
+    const sections = DOCS.map((section) => document.getElementById(section.id)).filter(Boolean);
+    const links = DOCS.map((section) =>
+      document.querySelector(`.docs-sidebar a[href="#${section.id}"]`)
+    ).filter(Boolean);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        const current = visible[0] || entries[entries.length - 1];
+        if (!current) return;
+        links.forEach((link) => link.classList.toggle("active", link.getAttribute("href") === `#${current.target.id}`));
+      },
+      { rootMargin: "-15% 0px -70% 0px", threshold: 0 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <SpotlightSection className="section" style={{ paddingTop: 0, paddingBottom: 0 }}>
       <div className="container">

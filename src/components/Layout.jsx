@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Cursor from "./Cursor";
+import ScrollProgress from "./ScrollProgress";
 
 export default function Layout() {
   const { pathname } = useLocation();
@@ -14,6 +15,7 @@ export default function Layout() {
 
   return (
     <div className="site">
+      <ScrollProgress />
       <Cursor />
       <Navbar />
       <main className="site-main">

@@ -3,14 +3,39 @@ import { Download } from "lucide-react";
 
 const STORE_URL = "https://chromewebstore.google.com/detail/akovolabs-snap";
 
-export default function Button({ children, to, href, variant = "primary", icon: Icon, className = "", ...props }) {
-  const classes = `btn btn-${variant} ${className}`.trim();
+export default function Button({
+  children,
+  to,
+  href,
+  variant = "primary",
+  size,
+  icon: Icon,
+  iconAfter = false,
+  className = "",
+  ...props
+}) {
+  const classes = [
+    "btn",
+    `btn-${variant}`,
+    size ? `btn-${size}` : "",
+    iconAfter ? "btn-icon-after" : "",
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const inner = (
+    <>
+      {Icon && !iconAfter ? <Icon aria-hidden="true" /> : null}
+      {children}
+      {Icon && iconAfter ? <Icon aria-hidden="true" /> : null}
+    </>
+  );
 
   if (to) {
     return (
-      <Link to={to} className={classes}>
-        {Icon ? <Icon /> : null}
-        {children}
+      <Link to={to} className={classes} {...props}>
+        {inner}
       </Link>
     );
   }
@@ -18,27 +43,21 @@ export default function Button({ children, to, href, variant = "primary", icon: 
   if (href) {
     return (
       <a href={href} className={classes} target="_blank" rel="noopener noreferrer" {...props}>
-        {Icon ? <Icon /> : null}
-        {children}
+        {inner}
       </a>
     );
   }
 
   return (
     <button className={classes} {...props}>
-      {Icon ? <Icon /> : null}
-      {children}
+      {inner}
     </button>
   );
 }
 
-export function StoreButton({ compact = false, ...props }) {
+export function StoreButton({ size = "lg", ...props }) {
   return (
-    <Button
-      href={STORE_URL}
-      icon={Download}
-      {...props}
-    >
+    <Button href={STORE_URL} icon={Download} size={size} {...props}>
       Add to Chrome
     </Button>
   );

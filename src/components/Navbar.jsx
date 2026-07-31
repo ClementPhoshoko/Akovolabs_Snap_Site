@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { StoreButton } from "./Button";
@@ -12,9 +12,17 @@ const LINKS = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="navbar">
+    <header className={`navbar${scrolled ? " scrolled" : ""}`}>
       <div className="container navbar-inner">
         <Link to="/" className="brand" onClick={() => setOpen(false)}>
           <img src="/logo.png" alt="AkovoLabs Snap logo" className="brand-logo" draggable={false} />
@@ -37,7 +45,7 @@ export default function Navbar() {
         </nav>
 
         <div className="nav-cta">
-          <StoreButton compact />
+          <StoreButton size="sm" />
           <button
             className="menu-toggle"
             onClick={() => setOpen((v) => !v)}
