@@ -162,12 +162,12 @@ export default function Home() {
       </SpotlightSection>
 
       {/* 2. Stats Section — Bento Grid Style */}
-      <section className="section stats-bento-section" style={{ paddingTop: 0 }}>
+      <section className="section stats-bento-section">
         <div className="container">
           <div className="stats-bento-grid">
             
             {/* Card 1: 1 Click to Capture */}
-            <Reveal className="bento-card span-7 capture-bento" delay={0.05}>
+            <Reveal className="bento-card span-7 capture-bento" delay={0.05} direction="zoom">
               <div className="bento-card-beam" />
               <div className="bento-content">
                 <span className="bento-badge">
@@ -215,7 +215,7 @@ export default function Home() {
             </Reveal>
 
             {/* Card 2: 16 Pipeline Stages */}
-            <Reveal className="bento-card span-5 pipeline-bento" delay={0.1}>
+            <Reveal className="bento-card span-5 pipeline-bento" delay={0.1} direction="zoom">
               <div className="bento-card-beam" />
               <div className="bento-content">
                 <span className="bento-badge">
@@ -242,7 +242,7 @@ export default function Home() {
             </Reveal>
 
             {/* Card 3: 100% On-Device */}
-            <Reveal className="bento-card span-5 device-bento" delay={0.15}>
+            <Reveal className="bento-card span-5 device-bento" delay={0.15} direction="zoom">
               <div className="bento-card-beam" />
               <div className="bento-content">
                 <span className="bento-badge">
@@ -266,7 +266,7 @@ export default function Home() {
             </Reveal>
 
             {/* Card 4: 0 Tracking */}
-            <Reveal className="bento-card span-7 privacy-bento" delay={0.2}>
+            <Reveal className="bento-card span-7 privacy-bento" delay={0.2} direction="zoom">
               <div className="bento-card-beam" />
               <div className="bento-content">
                 <span className="bento-badge">
@@ -302,17 +302,17 @@ export default function Home() {
         <div className="container">
           <div className="showcase-grid">
             <div className="showcase-content">
-              <Reveal>
+              <Reveal direction="left">
                 <span className="badge badge-accent">Extension Interface</span>
                 <h2>A powerful extension in a simple popup</h2>
               </Reveal>
-              <Reveal delay={0.1}>
+              <Reveal direction="left" delay={0.1}>
                 <p>
                   Capture any viewport or full scrollable webpage with one click. Clean, fast,
                   and runs entirely on your device with offline support.
                 </p>
               </Reveal>
-              <Reveal delay={0.2}>
+              <Reveal direction="left" delay={0.2}>
                 <div className="hero-actions" style={{ justifyContent: "flex-start" }}>
                   <Button to="/docs" variant="secondary" icon={ArrowRight} iconAfter>
                     View capture guide
@@ -320,7 +320,7 @@ export default function Home() {
                 </div>
               </Reveal>
             </div>
-            <Reveal delay={0.15}>
+            <Reveal direction="right" delay={0.15}>
               <div className="showcase-img-container">
                 <img src="/extension_images_hd/home.png" alt="AkovoLabs Snap popup interface" />
               </div>
@@ -353,19 +353,19 @@ export default function Home() {
       <SpotlightSection className="section showcase-section" color="rgba(204, 120, 50, 0.1)">
         <div className="container">
           <div className="showcase-grid reverse">
-            <Reveal delay={0.15}>
+            <Reveal direction="left" delay={0.15}>
               <div className="showcase-img-container">
                 <img src="/extension_images_hd/processing.png" alt="AI design extraction in progress" />
               </div>
             </Reveal>
             <div className="showcase-content">
-              <Reveal>
-                <span className="badge badge-accent" style={{ background: "rgba(204, 120, 50, 0.15)", color: "var(--brand-accent)", border: "1px solid rgba(204, 120, 50, 0.3)" }}>
+              <Reveal direction="right">
+                <span className="badge badge-accent" style={{ color: "var(--brand-accent)" }}>
                   <Sparkles size={12} style={{ marginRight: 6, verticalAlign: "middle" }} /> AI Design Extraction
                 </span>
                 <h2>Gemini-powered layout reconstruction</h2>
               </Reveal>
-              <Reveal delay={0.1}>
+              <Reveal direction="right" delay={0.1}>
                 <p>
                   Snap parses the live page DOM structure, computed CSS styles, design tokens,
                   typography definitions, and image assets. It builds a structured semantic context
@@ -381,13 +381,13 @@ export default function Home() {
         <div className="container">
           <div className="showcase-grid">
             <div className="showcase-content">
-              <Reveal>
-                <span className="badge badge-accent" style={{ background: "rgba(98, 151, 85, 0.15)", color: "var(--brand-secondary-light)", border: "1px solid rgba(98, 151, 85, 0.3)" }}>
+              <Reveal direction="left">
+                <span className="badge badge-accent" style={{ color: "var(--brand-secondary-light)" }}>
                   Production Code
                 </span>
                 <h2>Ready-to-run React codebase</h2>
               </Reveal>
-              <Reveal delay={0.1}>
+              <Reveal direction="left" delay={0.1}>
                 <p>
                   Download the reconstruction as a complete Vite + React project ZIP file.
                   Unzip, run npm install, and open your code editor. The output is modular, cleanly structured,
@@ -402,7 +402,7 @@ export default function Home() {
                   </Reveal>
                 ))}
               </ul>
-              <Reveal delay={0.2}>
+              <Reveal direction="left" delay={0.2}>
                 <div className="hero-actions" style={{ justifyContent: "flex-start" }}>
                   <Button to="/docs#extract-design" variant="secondary" icon={ArrowRight} iconAfter>
                     Learn about reconstruction
@@ -410,7 +410,7 @@ export default function Home() {
                 </div>
               </Reveal>
             </div>
-            <Reveal delay={0.15}>
+            <Reveal direction="right" delay={0.15}>
               <div className="showcase-img-container">
                 <img src="/extension_images_hd/download.png" alt="Extracted design ZIP download page" />
               </div>
@@ -443,17 +443,17 @@ export default function Home() {
       <SpotlightSection className="section showcase-section" color="rgba(74, 139, 207, 0.1)">
         <div className="container">
           <div className="showcase-grid reverse">
-            <Reveal delay={0.15}>
+            <Reveal direction="left" delay={0.15}>
               <div className="showcase-img-container">
                 <img src="/extension_images_hd/history.png" alt="Local capture history panel" />
               </div>
             </Reveal>
             <div className="showcase-content">
-              <Reveal>
+              <Reveal direction="right">
                 <span className="badge badge-accent">Offline Library</span>
                 <h2>Manage your library locally</h2>
               </Reveal>
-              <Reveal delay={0.1}>
+              <Reveal direction="right" delay={0.1}>
                 <p>
                   Every screenshot and reconstructed codebase is preserved locally in your browser's IndexedDB.
                   Quickly search by domain, review prior extraction visual scores, copy pages directly
@@ -469,13 +469,13 @@ export default function Home() {
         <div className="container">
           <div className="showcase-grid">
             <div className="showcase-content">
-              <Reveal>
-                <span className="badge badge-accent" style={{ background: "rgba(204, 120, 50, 0.15)", color: "var(--brand-accent)", border: "1px solid rgba(204, 120, 50, 0.3)" }}>
+              <Reveal direction="left">
+                <span className="badge badge-accent" style={{ color: "var(--brand-accent)" }}>
                   Configuration
                 </span>
                 <h2>Tuned for your development workflow</h2>
               </Reveal>
-              <Reveal delay={0.1}>
+              <Reveal direction="left" delay={0.1}>
                 <p>
                   Configure dynamic page scroll delays, preferred screenshot file formats (PNG, JPEG, WebP),
                   local archive sizes, and custom API endpoints. Shape the extension behavior to match
@@ -483,7 +483,7 @@ export default function Home() {
                 </p>
               </Reveal>
             </div>
-            <Reveal delay={0.15}>
+            <Reveal direction="right" delay={0.15}>
               <div className="showcase-img-container">
                 <img src="/extension_images_hd/settings.png" alt="Extension developer configuration screen" />
               </div>
@@ -495,19 +495,63 @@ export default function Home() {
       {/* 8. CTA Banner */}
       <SpotlightSection className="section" color="rgba(98, 151, 85, 0.16)">
         <div className="container">
-          <Reveal>
+          <Reveal direction="zoom">
             <div className="cta-banner">
               <div className="cta-banner-beam" />
-              <span className="badge badge-accent" style={{ marginBottom: 16 }}>
-                <Palette size={12} /> Free forever
-              </span>
-              <h2>Start capturing beyond the screen</h2>
-              <p>Install AkovoLabs Snap, open a page, and capture it — or turn it into React code.</p>
-              <div className="hero-actions">
-                <StoreButton />
-                <Button to="/support" variant="ghost">
-                  Get help
-                </Button>
+              <div className="cta-banner-inner">
+                <div className="cta-copy">
+                  <span className="badge badge-accent">
+                    <Palette size={12} /> Free forever
+                  </span>
+                  <h2>Start capturing beyond the screen</h2>
+                  <p>
+                    Install AkovoLabs Snap, open a page, and capture it — or turn it into React code.
+                  </p>
+                  <div className="cta-actions">
+                    <StoreButton />
+                    <Button to="/support" variant="ghost">
+                      Get help
+                    </Button>
+                  </div>
+                </div>
+                <div className="cta-visual" aria-hidden="true">
+                  <div className="cta-visual-glow" />
+                  <div className="cta-window">
+                    <div className="cta-window-bar">
+                      <span className="cta-window-dots">
+                        <span className="cta-dot" style={{ background: "#ff5f56" }} />
+                        <span className="cta-dot" style={{ background: "#ffbd2e" }} />
+                        <span className="cta-dot" style={{ background: "#27c93f" }} />
+                      </span>
+                      <span className="cta-window-url">chromewebstore.google.com</span>
+                    </div>
+                    <div className="cta-popup">
+                      <div className="cta-popup-header">
+                        <img src="/logo.png" alt="" className="cta-popup-logo" />
+                        <span className="cta-popup-name">AkovoLabs Snap</span>
+                        <span className="cta-popup-version">v1.2.0</span>
+                      </div>
+                      <div className="cta-popup-row cta-popup-row-primary">
+                        <Camera size={13} /> Capture Full Page
+                      </div>
+                      <div className="cta-popup-row">
+                        <Sparkles size={13} /> Extract Design
+                      </div>
+                      <div className="cta-popup-row">
+                        <History size={13} /> Capture History
+                      </div>
+                      <div className="cta-popup-foot">
+                        <Shield size={12} /> 100% on-device
+                      </div>
+                    </div>
+                  </div>
+                  <div className="cta-float-chip cta-float-chip-1">
+                    <Download size={14} /> PNG · WebP
+                  </div>
+                  <div className="cta-float-chip cta-float-chip-2">
+                    <MousePointerClick size={14} /> 1-click capture
+                  </div>
+                </div>
               </div>
             </div>
           </Reveal>
