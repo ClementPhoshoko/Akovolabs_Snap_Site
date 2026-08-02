@@ -28,8 +28,8 @@ export default function NotFound() {
               <img
                 src="/Panicked_Robot_at_the_Computer.webp"
                 alt="A panicked robot at the computer, lost on a 404 page"
-                width="1000"
-                height="800"
+                width="558"
+                height="447"
                 draggable={false}
                 fetchPriority="high"
               />

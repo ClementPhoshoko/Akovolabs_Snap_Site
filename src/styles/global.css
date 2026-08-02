@@ -2216,8 +2216,6 @@ svg {
   width: 100%;
   height: auto;
   border-radius: var(--radius-xl);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-shadow-lg);
   -webkit-user-drag: none;
   -webkit-touch-callout: none;
   user-select: none;
