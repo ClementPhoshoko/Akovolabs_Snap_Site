@@ -103,8 +103,26 @@ is required** after a rebuild.
 ### Step 1 — Generate an SSH deploy key (on your local machine)
 
 ```bash
-ssh-keygen -t ed25519 -C "github-deploy-snap" -f ~/.ssh/snap_deploy -N ""
+ssh-keygen -t ed25519 -C "github-deploy-snap" -f ~/.ssh/snap_deploy
 cat ~/.ssh/snap_deploy.pub
+```
+
+When asked for a passphrase, press **Enter** twice (leave it empty — GitHub
+Actions can't enter a passphrase).
+
+> **Windows / PowerShell note:** the old `-N ""` flag fails on Windows
+> PowerShell 5.1 (it strips empty-string arguments, giving
+> `option requires an argument -- N`). Omitting `-N` and pressing Enter twice
+> avoids it. If `cat ~/.ssh/snap_deploy.pub` says the file does not exist, the
+> key was never created — re-run the `ssh-keygen` line.
+
+> **Windows `cmd` note:** `cmd` does not expand `~`, and `.ssh` often doesn't
+> exist yet. Use the full path and create the folder first:
+
+```cmd
+mkdir C:\Users\User\.ssh
+ssh-keygen -t ed25519 -C "github-deploy-snap" -f C:\Users\User\.ssh\snap_deploy
+type C:\Users\User\.ssh\snap_deploy.pub
 ```
 
 This creates:
@@ -133,6 +151,12 @@ From your local machine — should connect without a password prompt:
 
 ```bash
 ssh -i ~/.ssh/snap_deploy ubuntu@<your-vps-ip>
+```
+
+On Windows `cmd`/PowerShell, use the full path:
+
+```cmd
+ssh -i C:\Users\User\.ssh\snap_deploy ubuntu@<your-vps-ip>
 ```
 
 ### Step 4 — Add GitHub Secrets
