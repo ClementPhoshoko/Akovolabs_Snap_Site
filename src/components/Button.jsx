@@ -55,10 +55,16 @@ export default function Button({
   );
 }
 
-export function StoreButton({ size = "lg", ...props }) {
+export function StoreButton({ size = "lg", compact = false, ...props }) {
   return (
-    <Button href={STORE_URL} icon={Download} size={size} {...props}>
-      Add to Chrome
+    <Button
+      href={STORE_URL}
+      icon={Download}
+      size={size}
+      className={compact ? "btn-compact" : ""}
+      {...props}
+    >
+      <span className="btn-label">Add to Chrome</span>
     </Button>
   );
 }

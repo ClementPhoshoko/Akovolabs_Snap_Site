@@ -132,6 +132,12 @@ export default function Home() {
           <motion.p className="hero-meta" variants={heroItem}>
             Free · No account · Everything stays on your device
           </motion.p>
+
+          <motion.div className="hero-scroll-cue" variants={heroItem} aria-hidden="true">
+            <span className="hero-scroll-cue-mouse">
+              <span className="hero-scroll-cue-wheel" />
+            </span>
+          </motion.div>
         </motion.div>
       </SpotlightSection>
 
@@ -159,7 +165,7 @@ export default function Home() {
             </div>
             <Reveal direction="right" delay={0.15}>
               <div className="showcase-img-container">
-                <img src="/extension_images_hd/home.png" alt="AkovoLabs Snap popup interface" />
+                <img src="/extension_images_hd/home.webp" alt="AkovoLabs Snap popup interface" />
               </div>
             </Reveal>
           </div>
@@ -192,7 +198,7 @@ export default function Home() {
           <div className="showcase-grid reverse">
             <Reveal direction="left" delay={0.15}>
               <div className="showcase-img-container">
-                <img src="/extension_images_hd/processing.png" alt="AI design extraction in progress" />
+                <img src="/extension_images_hd/processing.webp" alt="AI design extraction in progress" />
               </div>
             </Reveal>
             <div className="showcase-content">
@@ -249,7 +255,7 @@ export default function Home() {
             </div>
             <Reveal direction="right" delay={0.15}>
               <div className="showcase-img-container">
-                <img src="/extension_images_hd/download.png" alt="Extracted design ZIP download page" />
+                <img src="/extension_images_hd/download.webp" alt="Extracted design ZIP download page" />
               </div>
             </Reveal>
           </div>
@@ -282,7 +288,7 @@ export default function Home() {
           <div className="showcase-grid reverse">
             <Reveal direction="left" delay={0.15}>
               <div className="showcase-img-container">
-                <img src="/extension_images_hd/history.png" alt="Local capture history panel" />
+                <img src="/extension_images_hd/history.webp" alt="Local capture history panel" />
               </div>
             </Reveal>
             <div className="showcase-content">
@@ -322,7 +328,7 @@ export default function Home() {
             </div>
             <Reveal direction="right" delay={0.15}>
               <div className="showcase-img-container">
-                <img src="/extension_images_hd/settings.png" alt="Extension developer configuration screen" />
+                <img src="/extension_images_hd/settings.webp" alt="Extension developer configuration screen" />
               </div>
             </Reveal>
           </div>
@@ -344,6 +350,17 @@ export default function Home() {
                   <p>
                     Install AkovoLabs Snap, open a page, and capture it — or turn it into React code.
                   </p>
+                  <ul className="cta-points">
+                    <li>
+                      <Check /> Capture full pages in one click
+                    </li>
+                    <li>
+                      <Check /> Extract any page as React code
+                    </li>
+                    <li>
+                      <Check /> 100% on-device, no account
+                    </li>
+                  </ul>
                   <div className="cta-actions">
                     <StoreButton />
                     <Button to="/support" variant="ghost">

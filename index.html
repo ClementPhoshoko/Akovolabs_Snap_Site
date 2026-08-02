@@ -1,15 +1,26 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="dark" />
+    <meta name="color-scheme" content="light dark" />
     <title>AkovoLabs Snap — Capture beyond the screen</title>
     <meta
       name="description"
       content="Capture full-page screenshots and extract any webpage into a ready-to-run React project with AI. A fast, privacy-first Chrome extension."
     />
-    <meta name="theme-color" content="#2b2b2b" />
+    <meta name="theme-color" content="#ffffff" />
+    <script>
+      (function () {
+        try {
+          var theme = localStorage.getItem("theme") || "light";
+          document.documentElement.setAttribute("data-theme", theme);
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta)
+            meta.setAttribute("content", theme === "dark" ? "#2b2b2b" : "#ffffff");
+        } catch (e) {}
+      })();
+    </script>
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/logo.png" />
     <meta property="og:type" content="website" />
@@ -18,8 +29,8 @@
       property="og:description"
       content="Full-page screenshots and AI design extraction. Any webpage becomes a ready-to-run React project."
     />
-    <meta property="og:image" content="/extension_images_hd/home.png" />
-    <meta name="twitter:image" content="/extension_images_hd/home.png" />
+    <meta property="og:image" content="/extension_images_hd/home.webp" />
+    <meta name="twitter:image" content="/extension_images_hd/home.webp" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

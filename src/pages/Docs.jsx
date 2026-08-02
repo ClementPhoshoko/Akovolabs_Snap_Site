@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import SpotlightSection from "../components/SpotlightSection";
 import Reveal from "../components/Reveal";
 
@@ -309,20 +309,17 @@ const DOCS = [
 ];
 
 export default function Docs() {
+  const [active, setActive] = useState(DOCS[0].id);
+
   useEffect(() => {
     const sections = DOCS.map((section) => document.getElementById(section.id)).filter(Boolean);
-    const links = DOCS.map((section) =>
-      document.querySelector(`.docs-sidebar a[href="#${section.id}"]`)
-    ).filter(Boolean);
 
     const observer = new IntersectionObserver(
       (entries) => {
-        const visible = entries
+        const current = entries
           .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        const current = visible[0] || entries[entries.length - 1];
-        if (!current) return;
-        links.forEach((link) => link.classList.toggle("active", link.getAttribute("href") === `#${current.target.id}`));
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+        if (current) setActive(current.target.id);
       },
       { rootMargin: "-15% 0px -70% 0px", threshold: 0 }
     );
@@ -338,7 +335,12 @@ export default function Docs() {
           <aside className="docs-sidebar" aria-label="Documentation">
             <span className="docs-sidebar-label">Documentation</span>
             {DOCS.map((section) => (
-              <a key={section.id} href={`#${section.id}`}>
+              <a
+                key={section.id}
+                href={`#${section.id}`}
+                aria-current={active === section.id ? "true" : undefined}
+                className={active === section.id ? "active" : undefined}
+              >
                 {section.title}
               </a>
             ))}
