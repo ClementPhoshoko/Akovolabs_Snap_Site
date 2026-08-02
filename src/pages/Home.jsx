@@ -12,16 +12,12 @@ import {
   ArrowRight,
   Check,
   MousePointerClick,
-  Layers,
-  Cpu,
-  EyeOff,
 } from "lucide-react";
 import SectionHeader from "../components/SectionHeader";
 import FeatureCard from "../components/FeatureCard";
 import StepCard from "../components/StepCard";
 import SpotlightSection from "../components/SpotlightSection";
 import Reveal from "../components/Reveal";
-import CountUp from "../components/CountUp";
 import Button, { StoreButton } from "../components/Button";
 
 const FEATURES = [
@@ -136,168 +132,10 @@ export default function Home() {
           <motion.p className="hero-meta" variants={heroItem}>
             Free · No account · Everything stays on your device
           </motion.p>
-
-          {/* Floating browser mockup */}
-          <motion.div
-            variants={heroItem}
-            className="frame"
-          >
-            <div className="frame-bar">
-              <div className="frame-dots">
-                <span className="frame-dot" style={{ background: "#ff5f57" }} />
-                <span className="frame-dot" style={{ background: "#febc2e" }} />
-                <span className="frame-dot" style={{ background: "#28c840" }} />
-              </div>
-              <div className="frame-url">chrome-extension://snap/popup.html</div>
-            </div>
-            <div className="frame-body">
-              <img
-                src="/extension_images_hd/home.png"
-                alt="AkovoLabs Snap extension interface"
-                loading="eager"
-              />
-            </div>
-          </motion.div>
         </motion.div>
       </SpotlightSection>
 
-      {/* 2. Stats Section — Bento Grid Style */}
-      <section className="section stats-bento-section">
-        <div className="container">
-          <div className="stats-bento-grid">
-            
-            {/* Card 1: 1 Click to Capture */}
-            <Reveal className="bento-card span-7 capture-bento" delay={0.05} direction="zoom">
-              <div className="bento-card-beam" />
-              <div className="bento-content">
-                <span className="bento-badge">
-                  <MousePointerClick size={12} /> Capture
-                </span>
-                <div className="bento-info">
-                  <h3 className="bento-title">
-                    <CountUp to={1} /> Click to Capture
-                  </h3>
-                  <p className="bento-desc">One click catches the full scrollable page. Seamless screenshot stitching at full viewport resolution.</p>
-                </div>
-              </div>
-              <div className="bento-visual capture-visual">
-                <div className="mock-window">
-                  <div className="mock-window-bar">
-                    <span className="dot red" />
-                    <span className="dot yellow" />
-                    <span className="dot green" />
-                  </div>
-                  <div className="mock-window-body">
-                    <div className="mock-browser-contents">
-                      <div className="mock-element header" />
-                      <div className="mock-element card-grid">
-                        <span className="mock-element block" />
-                        <span className="mock-element block" />
-                      </div>
-                      <div className="mock-element text-line" />
-                      <div className="mock-element text-line short" />
-                    </div>
-                    <div className="mock-extension-popup">
-                      <div className="popup-header">
-                        <span className="logo-dot" />
-                        Snap Popup
-                      </div>
-                      <button className="popup-btn">
-                        <Camera size={10} />
-                        <span>Capture Page</span>
-                      </button>
-                    </div>
-                    <div className="camera-flash" />
-                  </div>
-                </div>
-                <div className="mock-cursor" />
-              </div>
-            </Reveal>
-
-            {/* Card 2: 16 Pipeline Stages */}
-            <Reveal className="bento-card span-5 pipeline-bento" delay={0.1} direction="zoom">
-              <div className="bento-card-beam" />
-              <div className="bento-content">
-                <span className="bento-badge">
-                  <Layers size={12} /> Ingestion
-                </span>
-                <div className="bento-info">
-                  <h3 className="bento-title">
-                    <CountUp to={16} /> Pipeline Stages
-                  </h3>
-                  <p className="bento-desc">A highly optimized multi-stage processing pipeline transforming DOM state to custom React code components.</p>
-                </div>
-              </div>
-              <div className="bento-visual pipeline-visual">
-                <div className="pipeline-nodes">
-                  <div className="node n1">DOM</div>
-                  <div className="connector c1" />
-                  <div className="node n2">CSS</div>
-                  <div className="connector c2" />
-                  <div className="node n3">AI</div>
-                  <div className="connector c3" />
-                  <div className="node n4">ZIP</div>
-                </div>
-              </div>
-            </Reveal>
-
-            {/* Card 3: 100% On-Device */}
-            <Reveal className="bento-card span-5 device-bento" delay={0.15} direction="zoom">
-              <div className="bento-card-beam" />
-              <div className="bento-content">
-                <span className="bento-badge">
-                  <Cpu size={12} /> Execution
-                </span>
-                <div className="bento-info">
-                  <h3 className="bento-title">
-                    <CountUp to={100} suffix="%" /> On-Device
-                  </h3>
-                  <p className="bento-desc">Runs strictly on local CPU. All settings, histories, and databases remain completely offline.</p>
-                </div>
-              </div>
-              <div className="bento-visual cpu-visual">
-                <div className="cpu-core">
-                  <Cpu size={32} />
-                  <span className="pulse ring-1" />
-                  <span className="pulse ring-2" />
-                  <span className="pulse ring-3" />
-                </div>
-              </div>
-            </Reveal>
-
-            {/* Card 4: 0 Tracking */}
-            <Reveal className="bento-card span-7 privacy-bento" delay={0.2} direction="zoom">
-              <div className="bento-card-beam" />
-              <div className="bento-content">
-                <span className="bento-badge">
-                  <EyeOff size={12} /> Privacy
-                </span>
-                <div className="bento-info">
-                  <h3 className="bento-title">
-                    <CountUp to={0} /> Tracking, Ever
-                  </h3>
-                  <p className="bento-desc">Zero telemetry, tracking scripts, cookies, or remote analytics calls. Sandbox-isolated execution.</p>
-                </div>
-              </div>
-              <div className="bento-visual terminal-visual">
-                <div className="terminal-header">
-                  <span className="dot" />
-                  <span className="title">Network Activity</span>
-                </div>
-                <div className="terminal-body">
-                  <div className="terminal-line block">&gt; telemetry-endpoint: BLOCKED</div>
-                  <div className="terminal-line block">&gt; thirdparty-analytics: BLOCKED</div>
-                  <div className="terminal-line success">&gt; local IndexedDB: SECURED</div>
-                  <div className="terminal-line success">&gt; offline capture status: OK</div>
-                </div>
-              </div>
-            </Reveal>
-
-          </div>
-        </div>
-      </section>
-
-      {/* 3. HD Showcase: Home */}
+      {/* 2. HD Showcase: Home */}
       <SpotlightSection className="section showcase-section" color="rgba(74, 139, 207, 0.12)">
         <div className="container">
           <div className="showcase-grid">
@@ -305,8 +143,7 @@ export default function Home() {
               <Reveal direction="left">
                 <span className="badge badge-accent">Extension Interface</span>
                 <h2>A powerful extension in a simple popup</h2>
-              </Reveal>
-              <Reveal direction="left" delay={0.1}>
+              </Reveal><Reveal direction="left" delay={0.1}>
                 <p>
                   Capture any viewport or full scrollable webpage with one click. Clean, fast,
                   and runs entirely on your device with offline support.
@@ -329,7 +166,7 @@ export default function Home() {
         </div>
       </SpotlightSection>
 
-      {/* 4. Features Grid */}
+      {/* 3. Features Grid */}
       <SpotlightSection className="section" color="rgba(98, 151, 85, 0.08)">
         <div className="container">
           <Reveal>
@@ -349,7 +186,7 @@ export default function Home() {
         </div>
       </SpotlightSection>
 
-      {/* 5. HD Showcase: Processing + Download */}
+      {/* 4. HD Showcase: Processing + Download */}
       <SpotlightSection className="section showcase-section" color="rgba(204, 120, 50, 0.1)">
         <div className="container">
           <div className="showcase-grid reverse">
@@ -419,7 +256,7 @@ export default function Home() {
         </div>
       </SpotlightSection>
 
-      {/* 6. How It Works */}
+      {/* 5. How It Works */}
       <section className="section">
         <div className="container">
           <Reveal>
@@ -439,7 +276,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. HD Showcase: History + Settings */}
+      {/* 6. HD Showcase: History + Settings */}
       <SpotlightSection className="section showcase-section" color="rgba(74, 139, 207, 0.1)">
         <div className="container">
           <div className="showcase-grid reverse">
@@ -492,7 +329,7 @@ export default function Home() {
         </div>
       </SpotlightSection>
 
-      {/* 8. CTA Banner */}
+      {/* 7. CTA Banner */}
       <SpotlightSection className="section" color="rgba(98, 151, 85, 0.16)">
         <div className="container">
           <Reveal direction="zoom">
