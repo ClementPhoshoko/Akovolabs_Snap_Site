@@ -90,9 +90,9 @@ export default function Support() {
               Send us an email with a description of the issue and your browser version. Include a
               screenshot if you can — Snap makes that easy.
             </p>
-            <a href="mailto:clement.phoshoko@outlook.com" className="btn btn-primary">
+            <a href="mailto:support@akovolabs.co.za" className="btn btn-primary">
               <Mail size={18} />
-              clement.phoshoko@outlook.com
+              support@akovolabs.co.za
             </a>
           </div>
         </Reveal>

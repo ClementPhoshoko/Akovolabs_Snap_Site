@@ -35,9 +35,9 @@ export default function Footer() {
 
           <div className="footer-col">
             <h4>Contact</h4>
-            <a href="mailto:clement.phoshoko@outlook.com">
+            <a href="mailto:support@akovolabs.co.za">
               <Mail size={14} style={{ display: "inline", verticalAlign: "-2px", marginRight: 6 }} />
-              clement.phoshoko@outlook.com
+              support@akovolabs.co.za
             </a>
           </div>
         </div>

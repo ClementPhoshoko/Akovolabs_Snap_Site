@@ -167,7 +167,7 @@ const SECTIONS = [
         <p>
           <strong>Clement Phoshoko</strong>
           <br />
-          <a href="mailto:clement.phoshoko@outlook.com">clement.phoshoko@outlook.com</a>
+          <a href="mailto:support@akovolabs.co.za">support@akovolabs.co.za</a>
         </p>
       </>
     ),
