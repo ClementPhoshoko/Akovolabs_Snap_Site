@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SpotlightSection from "../components/SpotlightSection";
 import Reveal from "../components/Reveal";
 
@@ -321,12 +321,30 @@ export default function Docs() {
           .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
         if (current) setActive(current.target.id);
       },
-      { rootMargin: "-15% 0px -70% 0px", threshold: 0 }
+      { rootMargin: "-20% 0px -60% 0px", threshold: 0 }
     );
 
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
   }, []);
+
+  // On mobile, keep the active chip in focus inside the scrollable bar
+  const initial = useRef(true);
+  useEffect(() => {
+    if (initial.current) {
+      initial.current = false;
+      return;
+    }
+    if (!window.matchMedia("(max-width: 400px)").matches) return;
+    const bar = document.querySelector(".docs-sidebar");
+    const chip = bar?.querySelector(`a[href="#${active}"]`);
+    if (!bar || !chip) return;
+    const barRect = bar.getBoundingClientRect();
+    const chipRect = chip.getBoundingClientRect();
+    const targetLeft =
+      bar.scrollLeft + (chipRect.left - barRect.left) - (barRect.width - chipRect.width) / 2;
+    bar.scrollTo({ left: targetLeft, behavior: "smooth" });
+  }, [active]);
 
   return (
     <SpotlightSection className="section" color="rgba(74, 139, 207, 0.1)" style={{ paddingTop: 0, paddingBottom: 0 }}>

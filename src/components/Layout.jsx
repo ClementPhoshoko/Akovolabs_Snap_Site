@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Cursor from "./Cursor";
 import ScrollProgress from "./ScrollProgress";
+import Seo from "./Seo";
 
 export default function Layout() {
   const { pathname } = useLocation();
@@ -15,6 +16,7 @@ export default function Layout() {
 
   return (
     <div className="site">
+      <Seo />
       <ScrollProgress />
       <Cursor />
       <Navbar />

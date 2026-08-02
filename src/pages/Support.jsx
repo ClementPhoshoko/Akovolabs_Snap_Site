@@ -54,6 +54,7 @@ export default function Support() {
       <div className="container">
         <Reveal>
           <SectionHeader
+            as="h1"
             kicker="Support"
             title="How can we help?"
             subtitle="Browse the answers below, or reach out directly — we are happy to help."

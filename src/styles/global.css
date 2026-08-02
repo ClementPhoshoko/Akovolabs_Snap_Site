@@ -196,6 +196,29 @@ svg {
   flex: 1;
 }
 
+/* ─── Lazy route fallback ─────────────────────────────────── */
+
+.page-loading {
+  display: grid;
+  place-items: center;
+  min-height: 55vh;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 3px solid var(--interactive-border);
+  border-top-color: var(--brand-primary);
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .container {
   width: 100%;
   max-width: var(--site-container);
@@ -439,7 +462,8 @@ svg {
   margin-bottom: var(--space-5);
 }
 
-.section-header h2 {
+.section-header h2,
+.section-header h1 {
   font-size: clamp(1.75rem, 5vw, 3.5rem);
   letter-spacing: -0.035em;
   line-height: 1.1;
@@ -2161,6 +2185,123 @@ svg {
   margin-bottom: var(--space-8);
 }
 
+/* ─── 404 / Not found ─────────────────────────────────── */
+
+.nf-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.nf-badge {
+  margin-bottom: var(--space-6);
+  font-family: var(--font-family-mono);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.nf-badge code {
+  font-size: var(--font-size-xs);
+  color: inherit;
+}
+
+.nf-image {
+  position: relative;
+  max-width: 460px;
+  width: 100%;
+  margin: 0 auto var(--space-8);
+}
+
+.nf-image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow-lg);
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+.nf-inner h1 {
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  margin-bottom: var(--space-5);
+}
+
+.nf-advisory {
+  max-width: 560px;
+  margin: 0 auto var(--space-8);
+  color: var(--text-secondary);
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+}
+
+.nf-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  width: max-content;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: var(--space-2);
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--glass-border);
+  background: color-mix(in srgb, var(--glass-bg) 45%, transparent);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  box-shadow: var(--glass-shadow-sm);
+}
+
+.nf-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: var(--radius-full);
+  background: transparent;
+  border: 0;
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  transition:
+    color var(--duration-fast) var(--ease-default),
+    transform var(--duration-fast) var(--ease-default),
+    text-shadow var(--duration-fast) var(--ease-default);
+}
+
+.nf-action code {
+  font-size: 0.95em;
+  letter-spacing: 0;
+}
+
+.nf-action .nf-tag {
+  color: var(--brand-primary-light);
+  opacity: 0.85;
+}
+
+.nf-action:hover {
+  color: var(--text-accent);
+  transform: translateY(-2px);
+  text-shadow: 0 0 18px color-mix(in srgb, var(--brand-primary) 45%, transparent);
+}
+
+.nf-action:active {
+  transform: translateY(0) scale(0.97);
+}
+
+@media (max-width: 400px) {
+  .nf-image {
+    max-width: 340px;
+  }
+
+  .nf-action {
+    padding: 10px 12px;
+  }
+}
+
 /* ─── Reduced motion ─────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {
@@ -2404,7 +2545,7 @@ svg {
 
   .docs-sidebar {
     position: sticky;
-    top: 72px;
+    top: 84px;
     z-index: 2;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -2434,6 +2575,8 @@ svg {
     background: var(--interactive-bg);
     border-radius: var(--radius-full);
     white-space: nowrap;
+    backdrop-filter: blur(12px) saturate(150%);
+    -webkit-backdrop-filter: blur(12px) saturate(150%);
   }
 
   .docs-sidebar a:hover {
@@ -2446,7 +2589,7 @@ svg {
   }
 
   .docs-content section {
-    scroll-margin-top: 148px;
+    scroll-margin-top: 160px;
   }
 }
 
