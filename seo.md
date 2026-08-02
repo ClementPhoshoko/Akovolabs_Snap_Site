@@ -163,7 +163,8 @@ Track Core Web Vitals in Search Console. Targets:
 - [ ] **Search Console:** verify the site, submit `sitemap.xml`, confirm no coverage errors
 
 ### Before launch — required manual edits
-- [ ] Replace `SITE_URL` / all `https://akovolabs-snap.com` occurrences (index.html, `src/seo.js`,
-      `public/robots.txt`, `public/sitemap.xml`) with the real domain
-- [ ] Drop your Google site-verification HTML file into `public/`
-      (it is copied verbatim into `dist/` at build time)
+- [x] `SITE_URL` / all `https://akovolabs-snap.com` occurrences replaced with the
+      real domain `https://snap.akovolabs.co.za` (index.html, `src/seo.js`,
+      `public/robots.txt`, `public/sitemap.xml`)
+- [x] Google site-verification HTML dropped into `public/`
+      (`public/google3625309ebccc8318.html`, copied into `dist/` at build time)

@@ -1,5 +1,5 @@
 // Production domain — replace with the real deployed domain before launch.
-export const SITE_URL = "https://akovolabs-snap.com";
+export const SITE_URL = "https://snap.akovolabs.co.za";
 
 export const DEFAULT_IMAGE = "/extension_images_hd/home.webp";
 

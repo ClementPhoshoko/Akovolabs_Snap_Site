@@ -1,4 +1,4 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
 
-Sitemap: https://akovolabs-snap.com/sitemap.xml
+Sitemap: https://snap.akovolabs.co.za/sitemap.xml
