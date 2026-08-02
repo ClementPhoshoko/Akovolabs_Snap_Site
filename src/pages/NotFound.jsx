@@ -26,7 +26,7 @@ export default function NotFound() {
             </span>
             <div className="nf-image">
               <img
-                src="/Panicked_Robot_at_the_Computer.webp"
+                src="/Panicked_Robot_v2.webp"
                 alt="A panicked robot at the computer, lost on a 404 page"
                 width="558"
                 height="447"
