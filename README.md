@@ -179,7 +179,7 @@ akovolabs-snap-site/
 │   ├── extension_images_hd/       # Product screenshots (WebP)
 │   ├── favicon.png · logo.png
 │   ├── robots.txt · sitemap.xml
-│   └── Panicked_Robot_at_the_Computer.webp  # 404 page art
+│   └── Panicked_Robot_v2.webp       # 404 page art
 ├── src/
 │   ├── components/                # Navbar, Footer, Seo, SectionHeader, ...
 │   ├── pages/                     # Home, Docs, Privacy, Support, NotFound
