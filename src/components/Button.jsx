@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { Download } from "lucide-react";
 
-const STORE_URL = "https://chromewebstore.google.com/detail/akovolabs-snap";
+const STORE_URL =
+  "https://chromewebstore.google.com/detail/dfjmocbgmlabkoleadkgdlllieadnknd?utm_source=item-share-cb";
 
 export default function Button({
   children,
