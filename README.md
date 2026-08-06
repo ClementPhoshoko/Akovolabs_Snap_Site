@@ -8,7 +8,7 @@ It automatically scrolls through a webpage, captures each viewport, stitches the
 
 Built with React, JavaScript, Vite, and Chrome Extension Manifest V3, Snap is fast, lightweight, and privacy-friendly — everything runs locally except the optional AI calls you explicitly trigger.
 
-> This repository contains the **marketing website** for AkovoLabs Snap, live at <https://snap.akovolabs.co.za>. The extension source lives in its own repository. See [Getting Started](#getting-started) to run this site locally, and [deployment.md](deployment.md) for hosting + auto-deploy.
+> This repository contains the **marketing website** for AkovoLabs Snap, live at <https://snap.akovolabs.co.za>. The extension source lives in its own repository. See [Getting Started](#getting-started) to run this site locally.
 
 ## Table of Contents
 
